@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Cache\**" />
+      <Content Remove="Cache\**" />
+      <EmbeddedResource Remove="Cache\**" />
+      <None Remove="Cache\**" />
+      <Compile Remove="Pagination\Extensions.cs" />
+      <Compile Remove="Services\UserService.cs" />
+      <Compile Remove="Common\JwtMiddleware.cs" />
+      <Compile Remove="ViewModel\AuthenticateResponse.cs" />
+      <Compile Remove="Common\AuthorizeAttribute.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="6.4.0" />
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+        <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Logic\LogsQueryCommandRedis.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LogerDatabase\LogerDatabase.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services" />
+    </ItemGroup>
+
+</Project>
