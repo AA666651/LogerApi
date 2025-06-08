@@ -44,18 +44,18 @@ namespace LogerApi
 
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
-            
+
             var context = Configuration.GetConnectionString("AppContext");
-            services.AddDbContext<LogerContext>(options =>options.UseSqlServer(context));
-        
+            services.AddDbContext<LogerContext>(options => options.UseSqlServer(context));
+
             services.AddCors(options => options.AddPolicy(name: "NgOrigins",
             policy =>
             {
                 policy.WithOrigins("http://localhost:5015").AllowAnyMethod().AllowAnyHeader();
             }));
-            
+
         }
-        
+
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new QueriesModule());
